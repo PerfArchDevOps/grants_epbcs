@@ -176,16 +176,34 @@ view: fact_forecast {
     type:  number
     label: "Total Spend"
     value_format: "$#,##0.00"
-    sql: nvl(${TABLE}.SUPPLEMENTAL,0) + nvl(${TABLE}."DIST_SALARY",0)
-    + nvl(${TABLE}."SUMMER",0)  + nvl(${TABLE}."STANDARD_VAL",0) ;;
+    sql: nvl(${supplemental},0) + nvl(${dist_salary},0)
+    + nvl(${summer},0)  + nvl(${standard_val},0) ;;
 }
 
   measure: total_budget {
     type:  number
     label: "Total Budget"
     value_format: "$#,##0.00"
-    sql: nvl(${TABLE}.ADJ_BUDGET,0) + nvl(${TABLE}."BEG_BUDGET",0)   ;;
+    sql: nvl(${adj_budget},0) + nvl(${beg_budget},0)   ;;
   }
+
+  measure: available_budget {
+    type:  number
+    label: "Available Budget"
+    value_format: "$#,##0.00"
+    sql: nvl(${total_budget},0) -  nvl(${total_spend},0)   ;;
+  }
+
+  measure: pct_available_budget {
+    type:  number
+    label: "% Available Budget"
+    value_format: "0.00\%"
+    sql: case when nvl(${total_budget},0) = 0 then 0 else
+    1.0 * nvl(${available_budget},0) / nvl(${total_budget},0) end  ;;
+  }
+
+
+
 
   measure: count {
     type: count

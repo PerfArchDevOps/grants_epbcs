@@ -9,4 +9,12 @@ datagroup: grants_epbcs_default_datagroup {
 
 persist_with: grants_epbcs_default_datagroup
 
-explore:fact_forecast {}
+explore:fact_forecast
+{
+  join: dim_account {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_forecast.account_id} = ${dim_account.account} ;;
+  }
+
+}
