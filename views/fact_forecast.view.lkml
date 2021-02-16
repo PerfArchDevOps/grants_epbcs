@@ -99,7 +99,7 @@ view: fact_forecast {
     sql: ${TABLE}.PROJECTFUNDTYPE ;;
   }
 
-  dimension: projectpi {
+  dimension: project_pi {
     type: string
     hidden: yes
     sql: ${TABLE}.PROJECTPI ;;

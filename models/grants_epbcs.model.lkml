@@ -17,4 +17,46 @@ explore:fact_forecast
     sql_on: ${fact_forecast.account_id} = ${dim_account.account} ;;
   }
 
+  join: dim_assignment {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_forecast.assignment_id} = ${dim_assignment.assignment} ;;
+  }
+
+    join: dim_pi {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_forecast.project_pi} = ${dim_pi.pi} ;;
+  }
+
+  join: dim_project {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_forecast.account_id} = ${dim_account.account} ;;
+  }
+
+  join: dim_project_award_type {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_forecast.project_id} = ${dim_project.project} ;;
+  }
+
+  join: dim_project_period {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_forecast.project_period_sl} = ${dim_project_period.project_period} ;;
+  }
+
+  join: dim_project_year {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_forecast.project_year_sl} = ${dim_project_year.project_year} ;;
+  }
+
+join: dim_work_unit {
+  type: left_outer
+  relationship: many_to_one
+  sql_on: ${fact_forecast.work_unit_id} = ${dim_work_unit.work_unit} ;;
+
+}
 }
