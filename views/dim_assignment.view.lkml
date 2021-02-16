@@ -1,8 +1,10 @@
 view: dim_assignment {
+  label: "Assignment"
   sql_table_name: OACDEMO.DIM_ASSIGNMENT ;;
 
   dimension: assignment {
     type: string
+    primary_key: yes
     sql: ${TABLE}.ASSIGNMENT ;;
   }
 
@@ -16,8 +18,5 @@ view: dim_assignment {
     sql: ${TABLE}.ASSIGNMENT_PARENT ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
+
 }

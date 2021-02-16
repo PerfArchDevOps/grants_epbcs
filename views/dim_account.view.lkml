@@ -1,8 +1,10 @@
 view: dim_account {
+  label: "Account"
   sql_table_name: OACDEMO.DIM_ACCOUNT ;;
 
   dimension: account {
     type: string
+    primary_key: yes
     sql: ${TABLE}.ACCOUNT ;;
   }
 
@@ -16,8 +18,4 @@ view: dim_account {
     sql: ${TABLE}.ACCOUNT_PARENT ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
 }

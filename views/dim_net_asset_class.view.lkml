@@ -3,6 +3,7 @@ view: dim_net_asset_class {
 
   dimension: net_asset_class {
     type: string
+  primary_key: yes
     sql: ${TABLE}.NET_ASSET_CLASS ;;
   }
 
@@ -16,8 +17,4 @@ view: dim_net_asset_class {
     sql: ${TABLE}.NET_ASSET_CLASS_PARENT ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
 }

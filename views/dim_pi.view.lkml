@@ -1,8 +1,11 @@
 view: dim_pi {
   sql_table_name: OACDEMO.DIM_PI ;;
 
+  label: "Principal Investigator"
+
   dimension: pi {
     type: string
+  primary_key: yes
     sql: ${TABLE}.PI ;;
   }
 
@@ -16,8 +19,4 @@ view: dim_pi {
     sql: ${TABLE}.PI_PARENT ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
 }

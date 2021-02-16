@@ -8,3 +8,5 @@ datagroup: grants_epbcs_default_datagroup {
 }
 
 persist_with: grants_epbcs_default_datagroup
+
+explore:fact_forecast {}

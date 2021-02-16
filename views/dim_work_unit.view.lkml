@@ -1,8 +1,12 @@
 view: dim_work_unit {
   sql_table_name: OACDEMO.DIM_WORK_UNIT ;;
 
+
+  label: "Work Unit"
+
   dimension: work_unit {
     type: string
+    primary_key: yes
     sql: ${TABLE}.WORK_UNIT ;;
   }
 
@@ -16,8 +20,5 @@ view: dim_work_unit {
     sql: ${TABLE}.WORK_UNIT_PARENT ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
+
   }
-}
